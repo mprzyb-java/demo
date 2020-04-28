@@ -9,9 +9,13 @@ import task.demo.model.Currency;
 
 import java.util.Collections;
 
+/**
+ * Service which sends requests to cryptocurrency API.
+ */
 @Service
 public class CurrencyService {
 
+    private static final String API_KEY = "6C6F1D19-2D41-444D-BC75-2CBC43B3297F";
     private static final String BASE_URL_FORMAT = "https://rest.coinapi.io/v1/exchangerate/";
 
     private final RestTemplate restTemplate;
@@ -42,10 +46,13 @@ public class CurrencyService {
         }
     }
 
+    /**
+     * Prepares header with API key for requests to cryptocurrency API.
+     */
     private HttpEntity setupRequest() {
         HttpHeaders headers = new HttpHeaders();
         headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
-        headers.set("X-CoinAPI-Key", "6C6F1D19-2D41-444D-BC75-2CBC43B3297F");
+        headers.set("X-CoinAPI-Key", API_KEY);
         return new HttpEntity(headers);
     }
 }

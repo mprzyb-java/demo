@@ -5,6 +5,9 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import task.demo.model.*;
 
+/**
+ * Controller which listen to requests from clients and returns results of operations on cryptocurrency.
+ */
 @RestController
 @RequestMapping(path = "/currencies/", produces = MediaType.APPLICATION_JSON_VALUE)
 public class Controller {
